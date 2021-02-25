@@ -1,5 +1,5 @@
 # Using multi stage docker build
-# Stage - 1  Prepare the build artifacts 
+# Stage - 1  Prepare the build artifacts
 
 FROM quay.io/quarkus/centos-quarkus-maven:19.3.1-java8 as build
 
@@ -23,7 +23,7 @@ COPY pom.xml /usr/src/app
 
 WORKDIR /usr/src/app
 
-RUN mvn clean package
+RUN mvn -ntp -B clean package
 
 # Stage - 2 Prepare the final container image
 
